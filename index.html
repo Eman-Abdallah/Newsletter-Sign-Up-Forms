@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./style.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; color: white; }
+    .attribution a { color: rgb(249,83,114); }
+  </style>
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+  <div class="card" id="updateCard">
+    <div class="card__content">
+      <h1 class="card__title">Stay updated!</h1>
+      <p class="card__description">Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul class="card__list">
+        <li class="list-item card__list-item">
+          <div class="container">
+            <img class="list-item__img" src="./assets/images/icon-list.svg" alt="icon-list">
+            <p class="list-item__text">Product discovery and building what matters</p>
+          </div>
+        </li>
+        <li class="list-item card__list-item">
+          <div class="container">
+            <img class="list-item__img" src="./assets/images/icon-list.svg" alt="icon-list">
+            <p class="list-item__text">Measuring to ensure updates are a success</p>
+          </div>
+        </li>
+        <li class="list-item card__list-item">
+          <div class="container">
+            <img class="list-item__img" src="./assets/images/icon-list.svg" alt="icon-list">
+            <p class="list-item__text">And much more!</p>
+          </div>
+        </li>
+      </ul>
+      <form name="form1">
+      <div class="form-group card__form-group">
+        <label for="email" class="form-group__label">Email address</label>
+        <span class="form-group__error" id="error-mesg">Valid email required</span>
+        <input type="email" id="email" name="email" class="form-group__input" placeholder="email@company.com"  >
+        <button type="button" class="form-group__btn" onclick="ValidateEmail(document.form1.email)">
+          Subscribe to monthly newsletter
+        </button>
+      </div>
+    </form>
+    </div>
+    <div class="">
+      <img class="card__desktop-img" src="./assets/images/illustration-sign-up-desktop.svg" alt="illustration-sign-up">
+      <img class="card__mobile-img" src="./assets/images/illustration-sign-up-mobile.svg" alt="illustration-sign-up">
+    </div>
+    </div>
+  <!-- Sign-up form end -->
+
+  <!-- Success message start -->
+  <div class="card card--success" id="successCard">
+    <div class="container container--column">
+      <img src="./assets/images/icon-success.svg" width="50px" alt="icon-success">
+      <h1 class="card__title">Thanks for subscribing!</h1>
+      <p class="card__description">  A confirmation email has been sent to ash@loremcompany.com. 
+        Please open it and click the button inside to confirm your subscription.</p>
+        <div class="form-group card__form-group">
+          <button type="button" class="form-group__btn" >
+            Dismiss message
+          </button>
+        </div>
+    </div>
+  </div>
+  <!-- Success message end -->
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Eman Shaltoot</a>.
+  </div>
+  <script>
+function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+  subscribe();
+return true;
+}
+else
+{
+document.getElementById("email").classList.add('form-group__input--error')
+document.getElementById("error-mesg").style.display='block'
+document.form1.text1.focus();
+return false;
+}
+}
+   function subscribe(){
+      document.getElementById("updateCard").style.display='none';
+      document.getElementById("successCard").style.display='block';
+    }
+
+  </script>
+</body>
+</html>
